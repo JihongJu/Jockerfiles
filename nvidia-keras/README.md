@@ -1,13 +1,11 @@
-nvidia-keras
-============
+# nvidia-keras
+A Docker image for GPU-enabled Keras.
 
-Requirements
-------------
+### Requirements
 
-`nvidia-docker`: See https://github.com/NVIDIA/nvidia-docker
+Assuming NVIDIA drivers, Docker and NVIDIA Docker are properly installed (see [installation](https://github.com/NVIDIA/nvidia-docker#quick-start))
 
-Usage
------
+### Usage
 
 ```bash
 $ nvidia-docker run -it --rm jihong/nvidia-keras bash
