@@ -14,5 +14,8 @@ wget "https://raw.githubusercontent.com/JihongJu/Jockerfiles/master/envsetup/tmu
 
 echo "Adding .tmux.completion.bash to bashrc"
 wget "https://raw.githubusercontent.com/JihongJu/Jockerfiles/master/envsetup/tmux.completion.bash" -O ${HOME}/.tmux.completion.bash
+
+
 grep -q -F 'source ${HOME}/.tmux.completion.bash' ${HOME}/.bashrc || echo 'source ${HOME}/.tmux.completion.bash' >> ${HOME}/.bashrc
 source ${HOME}/.bashrc
+
