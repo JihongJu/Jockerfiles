@@ -21,6 +21,26 @@ rm /tmp/instance_init.sh
 
 Note that the above [script](https://raw.githubusercontent.com/JihongJu/Jockerfiles/master/envsetup/instance_init.sh) also includes tools like vim, tmux, pip, etc. I found myself that these tools are very useful while doing a project with keras. You can of course modify the script if you don't need them.
 
+
+### Installation
+
+Once all dependencies are properly installed, the docker image can be simply "installed" with command:
+
+```bash
+$ docker pull jihong/nvidia-keras:latest
+```
+
+Note that this is also the command for upgrading.
+
+Alternatively, one can directly run
+
+```bash
+$ nvidia-docker run -it --rm jihong/nvidia-keras nvidia-smi
+```
+
+A `docker pull` will be automatically triggered by this command. This will show a summary table for the NVIDIA GPU status if the docker image is successfully running on your machine.
+
+
 ### Usage
 
 Launch bash within the keras docker container:
@@ -28,6 +48,7 @@ Launch bash within the keras docker container:
 ```bash
 $ nvidia-docker run -it --rm jihong/nvidia-keras bash
 ```
+
 
 Mount a local directory to the container such that a local project can be running in the container:
 
@@ -45,3 +66,4 @@ $ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/workspa
 ```
 
 where `-p 8888:8888` denotes the port mapping from host to container in the format of `-p hostPort:containerPort`.
+
