@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     python-setuptools \
     python-virtualenv
 
-# install data processing libraries
+# install libraries data processing
 RUN pip install pandas h5py
 
 # install theano and keras
