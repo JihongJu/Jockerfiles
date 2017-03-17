@@ -20,7 +20,7 @@ RUN pip install pandas h5py
 RUN pip install theano keras
 
 # set the working directory 
-WORKDIR /workspace
+WORKDIR /root
 
 # CMD defines the default command to be run in the container 
 # CMD is overridden by supplying a command + arguments to 
