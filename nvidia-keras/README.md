@@ -48,7 +48,7 @@ $ nvidia-docker run -it --rm jihong/nvidia-keras bash
 Mount a local directory to the container such that a local project can be running in the container:
 
 ```bash
-$ nvidia-docker run -it --rm -v /path/to/directory/on/host:/workspace jihong/nvidia-keras bash
+$ nvidia-docker run -it --rm -v /path/to/directory/on/host:/root/workspace jihong/nvidia-keras bash
 ```
 
 where `/path/to/directory/on/host` is the __absolute path__ of the project directory on host, and `/workspace` will be the name of your directory in the container.
@@ -57,7 +57,8 @@ where `/path/to/directory/on/host` is the __absolute path__ of the project direc
 Launch Jupyter notebook from the container:
 
 ```bash
-$ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/workspace jihong/nvidia-keras jupyter notebook
+$ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/root/workspace jihong/nvidia-keras
+# jupyter notebook &
 ```
 
 where `-p 8888:8888` denotes the port mapping from host to container in the format of `-p hostPort:containerPort`.
