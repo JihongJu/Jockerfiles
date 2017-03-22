@@ -10,16 +10,30 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     # tools
     git \
+    vim \
     python-setuptools \
     python-virtualenv
 
-# install libraries data processing
-RUN pip install pandas h5py
+# Install keras and theano dependencies not included in
+# https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/docker/Dockerfile.gpu
+RUN pip --no-cache-dir install \
+    pandas \
+    h5py \
+    pyyaml \
+    virtualenv
 
-# install theano and keras
-RUN pip install theano keras
+# Install theano and keras
+RUN pip --no-cache-dir install \
+    theano \
+    keras
 
-# set the working directory 
+# Set keras backend to tensorflow by default
+ENV KERAS_BACKEND tensorflow
+
+# Add /root/workspace to PYTHONPATH for convenience
+ENV PYTHONPATH /root/workspace:$PYTHONPATH
+
+# Set the working directory 
 WORKDIR /root
 
 # CMD defines the default command to be run in the container 
