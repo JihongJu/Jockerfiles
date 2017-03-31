@@ -38,9 +38,9 @@ ENV KERAS_BACKEND tensorflow
 ENV PYTHONPATH /root/workspace:$PYTHONPATH
 
 # Set the working directory
-WORKDIR /root
+WORKDIR /root/workspace
 
 # CMD defines the default command to be run in the container
 # CMD is overridden by supplying a command + arguments to
 # `docker run`, e.g. `nvcc --version` or `bash`
-CMD bash
+CMD ["/run_jupyter.sh"]

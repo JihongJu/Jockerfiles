@@ -2,7 +2,7 @@
 
 Dockerfiles maintained by Jihong
 
-## jihong/nvidia-keras
+## jihong/keras-gpu
 
 A Docker image for GPU-enabled Keras.
 
@@ -26,7 +26,7 @@ Do not run this command if it is your own computer. It may cause incompatible dr
 Once all dependencies are properly installed, the docker image can be simply "installed" with command:
 
 ```bash
-$ docker pull jihong/nvidia-keras:latest
+$ docker pull jihong/keras-gpu:latest
 ```
 
 Note that this is also the command for upgrading.
@@ -34,7 +34,7 @@ Note that this is also the command for upgrading.
 Alternatively, one can directly run
 
 ```bash
-$ nvidia-docker run -it --rm jihong/nvidia-keras nvidia-smi
+$ nvidia-docker run -it --rm jihong/keras-gpu nvidia-smi
 ```
 
 A `docker pull` will be automatically triggered by this command. This will show a summary table for the NVIDIA GPU status if the docker image is successfully running on your machine.
@@ -45,19 +45,19 @@ A `docker pull` will be automatically triggered by this command. This will show 
 Launch bash within the container:
 
 ```bash
-$ nvidia-docker run -it --rm jihong/nvidia-keras bash
+$ nvidia-docker run -it --rm jihong/keras-gpu bash
 ```
 
 By default, this will use TensorFlow as backend. If you prefer theano as backend, you can add an environment variable with:
 
 ```bash
-$ nvidia-docker run -it --rm -e KERAS_BACKEND='theano' jihong/nvidia-keras bash
+$ nvidia-docker run -it --rm -e KERAS_BACKEND='theano' jihong/keras-gpu bash
 ```
 
 Mount a local directory to the container may be useful so that a local project can be running in the container:
 
 ```bash
-$ nvidia-docker run -it --rm -v /path/to/directory/on/host:/root/workspace jihong/nvidia-keras bash
+$ nvidia-docker run -it --rm -v /path/to/directory/on/host:/root/workspace jihong/keras-gpu bash
 ```
 
 where `/path/to/directory/on/host` is the __absolute path__ of the project directory on host, and `/workspace` will be the name of your directory in the container.
@@ -66,7 +66,7 @@ where `/path/to/directory/on/host` is the __absolute path__ of the project direc
 Launch Jupyter notebook from the container:
 
 ```bash
-$ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/root/workspace jihong/nvidia-keras
+$ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/root/workspace jihong/keras-gpu
 # jupyter notebook &
 ```
 
