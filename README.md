@@ -71,3 +71,14 @@ $ nvidia-docker run -it --rm -p 8888:8888 -v /path/to/directory/on/host:/root/wo
 ```
 
 where `-p 8888:8888` denotes the port mapping from host to container in the format of `-p hostPort:containerPort`.
+
+
+## PyTorch
+
+Automated build of [PyTorch Dockerfile](https://github.com/pytorch/pytorch/blob/master/Dockerfile).
+
+### Usage
+
+```bash
+nvidia-docker run --rm -ti jihong/pytorch
+```
