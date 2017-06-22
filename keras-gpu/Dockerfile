@@ -24,7 +24,11 @@ RUN pip install -U pip && pip --no-cache-dir install --upgrade \
     pyyaml \
     virtualenv \
     graphviz \
-    pydot
+    pydot \
+    keras-tqdm
+
+# Enable the widgetsnbextension for notebook
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 # Install theano and keras
 RUN pip --no-cache-dir install \
