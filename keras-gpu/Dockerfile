@@ -33,7 +33,8 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 # Install theano and keras
 RUN pip --no-cache-dir install --no-deps \
     theano \
-    keras
+    keras \
+    git+https://www.github.com/farizrahman4u/keras-contrib.git
 
 # Set keras backend to tensorflow by default
 ENV KERAS_BACKEND tensorflow
