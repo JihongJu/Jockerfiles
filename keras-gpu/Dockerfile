@@ -31,7 +31,7 @@ RUN pip install -U pip && pip --no-cache-dir install --upgrade \
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 # Install theano and keras
-RUN pip --no-cache-dir install --no-deps\
+RUN pip --no-cache-dir install --no-deps \
     theano \
     keras \
     git+https://www.github.com/farizrahman4u/keras-contrib.git
